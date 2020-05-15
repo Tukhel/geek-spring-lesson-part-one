@@ -2,6 +2,7 @@ package ru.geekbrains.server.persistance;
 
 import ru.geekbrains.server.User;
 
+import javax.sql.DataSource;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -10,9 +11,8 @@ public class UserRepository {
 
     private final Connection conn;
 
-    public UserRepository() throws SQLException {
-        this.conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/network_chat",
-                "root", "root");
+    public UserRepository(DataSource dataSource) throws SQLException {
+        this.conn = dataSource.getConnection();
         createTableIfNotExists(conn);
     }
 
