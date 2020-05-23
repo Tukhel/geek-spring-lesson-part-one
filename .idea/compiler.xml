@@ -10,6 +10,7 @@
         <module name="servlet-example" />
         <module name="spring-mvc-example" />
         <module name="network-chat" />
+        <module name="hibernate-lesson" />
       </profile>
     </annotationProcessing>
   </component>

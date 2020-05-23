@@ -14,6 +14,7 @@
         <module>servlet-example</module>
         <module>spring-mvc-example</module>
         <module>spring-mvc-shop</module>
+        <module>hibernate-lesson</module>
     </modules>
 
 
