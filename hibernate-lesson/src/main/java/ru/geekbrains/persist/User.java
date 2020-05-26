@@ -22,6 +22,13 @@ public class User {
     )
     private List<Product> products;
 
+    @OneToMany(
+            mappedBy = "user",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
+    private List<OrderItem> orderItems;
+
     public User() {
     }
 

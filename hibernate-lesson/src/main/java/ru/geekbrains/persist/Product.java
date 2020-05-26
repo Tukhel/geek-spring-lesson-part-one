@@ -26,6 +26,13 @@ public class Product {
     )
     private List<User> users;
 
+    @OneToMany(
+            mappedBy = "product",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
+    private List<OrderItem> orderItems;
+
     public Product() {
     }
 

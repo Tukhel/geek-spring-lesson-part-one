@@ -20,6 +20,6 @@
 
         <mapping class="ru.geekbrains.persist.User"/>
         <mapping class="ru.geekbrains.persist.Product"/>
-        <mapping class="ru.geekbrains.persist.Bascket"/>
+        <mapping class="ru.geekbrains.persist.OrderItem"/>
     </session-factory>
 </hibernate-configuration>
