@@ -1,12 +1,23 @@
-package ru.geekbrains.persist.enity;
+package ru.geekbrains.persist.entity;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "users")
 public class User {
 
+    @Id
+    @GeneratedValue
     private Long id;
 
+    @Column
     private String name;
 
+    @Column
     private String password;
+
+    @Column
+    private Integer age;
 
     public User() {
     }
@@ -39,5 +50,13 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public Integer getAge() {
+        return age;
+    }
+
+    public void setAge(Integer age) {
+        this.age = age;
     }
 }

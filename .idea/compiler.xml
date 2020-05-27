@@ -7,9 +7,9 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="spring-mvc-shop" />
-        <module name="servlet-example" />
-        <module name="spring-mvc-example" />
         <module name="network-chat" />
+        <module name="spring-mvc-example" />
+        <module name="servlet-example" />
         <module name="hibernate-lesson" />
       </profile>
     </annotationProcessing>

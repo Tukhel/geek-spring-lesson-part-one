@@ -45,12 +45,25 @@
             <a class="btn btn-primary" th:href="@{/user/new}">Add User</a>
         </div>
 
+        <div class="col-12 mt-3">
+            <form>
+                <label for="minAge">min Age</label>
+                <input type="number" name="minAge" id="minAge"/>
+
+                <label for="maxAge">max Age</label>
+                <input type="number" name="maxAge" id="maxAge"/>
+
+                <button class="btn btn-primary" type="submit">Filter</button>
+            </form>
+        </div>
+
         <div class="col-12">
             <table class="table table-bordered my-2">
                 <thead>
                 <tr>
                     <th scope="col">Id</th>
                     <th scope="col">Name</th>
+                    <th scope="col">Age</th>
                     <th scope="col">Actions</th>
                 </tr>
                 </thead>
@@ -61,6 +74,7 @@
                 <tr th:each="user : ${users}">
                     <th scope="row" th:text="${user.id}">1</th>
                     <td th:text="${user.name}">Alex</td>
+                    <td th:text="${user.age}">21</td>
                     <td>
                         <a class="btn btn-success" href="#"><i class="fas fa-edit"></i></a>
                         <a class="btn btn-danger" href="#"><i class="far fa-trash-alt"></i></a>
