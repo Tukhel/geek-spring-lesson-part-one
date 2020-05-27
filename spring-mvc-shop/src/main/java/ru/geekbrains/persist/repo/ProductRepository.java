@@ -1,36 +1,21 @@
 package ru.geekbrains.persist.repo;
 
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import ru.geekbrains.persist.enity.Product;
+import ru.geekbrains.persist.entity.Product;
 
-import java.util.ArrayList;
+import java.math.BigDecimal;
 import java.util.List;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.atomic.AtomicInteger;
 
 @Repository
-public class ProductRepository {
+public interface ProductRepository extends JpaRepository<Product, Long> {
 
-    private final AtomicInteger identityGen;
+    Product findByTitle(String title);
 
-    private final Map<Integer, Product> products;
+    List<Product> findByCoatGreaterThan(BigDecimal minCoat);
 
-    public ProductRepository() {
-        this.identityGen = new AtomicInteger(0);
-        this.products = new ConcurrentHashMap<>();
-    }
+    List<Product> findByCoatLessThan(BigDecimal maxCoat);
 
-    public List<Product> findAll() {
-        return new ArrayList<>(products.values());
-    }
+    List<Product> findByCoatAnd(BigDecimal minCoat, BigDecimal maxCoat);
 
-    public void add(Product products) {
-        int id = identityGen.incrementAndGet();
-        products.setId(id);
-    }
-
-    public Product findById (int id) {
-        return products.get(id);
-    }
 }

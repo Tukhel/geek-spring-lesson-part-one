@@ -6,23 +6,28 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import ru.geekbrains.persist.enity.Product;
-import ru.geekbrains.persist.repo.ProductRepository;
+import org.springframework.web.bind.annotation.RequestParam;
+import ru.geekbrains.persist.entity.Product;
+import ru.geekbrains.service.ProductService;
+
+import java.math.BigDecimal;
 
 @RequestMapping("/product")
 @Controller
 public class ProductController {
 
-    private ProductRepository productRepository;
+    private ProductService productService;
 
     @Autowired
-    public ProductController(ProductRepository productRepository) {
-        this.productRepository = productRepository;
+    public ProductController(ProductService productService) {
+        this.productService = productService;
     }
 
     @GetMapping
-    public String productList (Model model) {
-        model.addAttribute("products", productRepository.findAll());
+    public String productList (Model model,
+                               @RequestParam("minCoat") BigDecimal minCoat,
+                               @RequestParam("maxCoat") BigDecimal maxCoat) {
+        model.addAttribute("products", productService.filterByCoat(minCoat, maxCoat));
         return "products";
     }
 
@@ -34,7 +39,7 @@ public class ProductController {
 
     @PostMapping
     public String saveProduct(Product product) {
-        productRepository.add(product);
+        productService.save(product);
         return "redirect:/product";
     }
 }
