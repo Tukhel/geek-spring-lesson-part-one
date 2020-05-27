@@ -1,9 +1,19 @@
-package ru.geekbrains.persist.enity;
+package ru.geekbrains.persist.entity;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "products")
 public class Product {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
+    @Column
     private String title;
+
+    @Column
     private double coat;
 
     public Product() {

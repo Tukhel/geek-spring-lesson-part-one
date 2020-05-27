@@ -45,6 +45,18 @@
             <a class="btn btn-primary" th:href="@{/product/new}">Add Product</a>
         </div>
 
+        <div class="col-12 mt-3">
+            <form>
+                <label for="minCoat">Min Coat</label>
+                <input type="number" name="minCoat" id="minCoat"/>
+
+                <label for="maxCoat">Max Coat</label>
+                <input type="number" name="maxCoat" id="maxCoat"/>
+
+                <button class="btn btn-primary" type="submit">Filter</button>
+            </form>
+        </div>
+
         <div class="col-12">
             <table class="table table-bordered my-2">
                 <thead>
@@ -63,6 +75,63 @@
                     <th scope="row" th:text="${product.id}">1</th>
                     <td th:text="${product.title}">MacbookPro</td>
                     <td th:text="${product.coast}">2000$</td>
+                    <th scope="row" th:text="${product.id}">2</th>
+                    <td th:text="${product.title}">Acer_Aspire7735G</td>
+                    <td th:text="${product.coast}">100$</td>
+                    <th scope="row" th:text="${product.id}">3</th>
+                    <td th:text="${product.title}">Iphone11</td>
+                    <td th:text="${product.coast}">1500$</td>
+                    <th scope="row" th:text="${product.id}">4</th>
+                    <td th:text="${product.title}">Samsung_GalaxyS10</td>
+                    <td th:text="${product.coast}">1000$</td>
+                    <th scope="row" th:text="${product.id}">5</th>
+                    <td th:text="${product.title}">Huiway_P20pro</td>
+                    <td th:text="${product.coast}">500$</td>
+                    <th scope="row" th:text="${product.id}">6</th>
+                    <td th:text="${product.title}">MacbookPro</td>
+                    <td th:text="${product.coast}">2000$</td>
+                    <th scope="row" th:text="${product.id}">7</th>
+                    <td th:text="${product.title}">Acer_Aspire7735G</td>
+                    <td th:text="${product.coast}">100$</td>
+                    <th scope="row" th:text="${product.id}">8</th>
+                    <td th:text="${product.title}">Iphone11</td>
+                    <td th:text="${product.coast}">1500$</td>
+                    <th scope="row" th:text="${product.id}">9</th>
+                    <td th:text="${product.title}">Samsung_GalaxyS10</td>
+                    <td th:text="${product.coast}">1000$</td>
+                    <th scope="row" th:text="${product.id}">10</th>
+                    <td th:text="${product.title}">Huiway_P20pro</td>
+                    <td th:text="${product.coast}">500$</td>
+                    <th scope="row" th:text="${product.id}">11</th>
+                    <td th:text="${product.title}">MacbookPro</td>
+                    <td th:text="${product.coast}">2000$</td>
+                    <th scope="row" th:text="${product.id}">12</th>
+                    <td th:text="${product.title}">Acer_Aspire7735G</td>
+                    <td th:text="${product.coast}">100$</td>
+                    <th scope="row" th:text="${product.id}">13</th>
+                    <td th:text="${product.title}">Iphone11</td>
+                    <td th:text="${product.coast}">1500$</td>
+                    <th scope="row" th:text="${product.id}">14</th>
+                    <td th:text="${product.title}">Samsung_GalaxyS10</td>
+                    <td th:text="${product.coast}">1000$</td>
+                    <th scope="row" th:text="${product.id}">15</th>
+                    <td th:text="${product.title}">Huiway_P20pro</td>
+                    <td th:text="${product.coast}">500$</td>
+                    <th scope="row" th:text="${product.id}">16</th>
+                    <td th:text="${product.title}">MacbookPro</td>
+                    <td th:text="${product.coast}">2000$</td>
+                    <th scope="row" th:text="${product.id}">17</th>
+                    <td th:text="${product.title}">Acer_Aspire7735G</td>
+                    <td th:text="${product.coast}">100$</td>
+                    <th scope="row" th:text="${product.id}">18</th>
+                    <td th:text="${product.title}">Iphone11</td>
+                    <td th:text="${product.coast}">1500$</td>
+                    <th scope="row" th:text="${product.id}">19</th>
+                    <td th:text="${product.title}">Samsung_GalaxyS10</td>
+                    <td th:text="${product.coast}">1000$</td>
+                    <th scope="row" th:text="${product.id}">20</th>
+                    <td th:text="${product.title}">Huiway_P20pro</td>
+                    <td th:text="${product.coast}">500$</td>
                     <td>
                         <a class="btn btn-success" href="#"><i class="fas fa-edit"></i></a>
                         <a class="btn btn-danger" href="#"><i class="far fa-trash-alt"></i></a>
