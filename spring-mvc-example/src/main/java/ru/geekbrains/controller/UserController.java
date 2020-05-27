@@ -30,6 +30,7 @@ public class UserController {
                            @RequestParam("minAge") Integer minAge,
                            @RequestParam("maxAge") Integer maxAge) {
         logger.info("User list. With minAge = {} and maxAge = {}", minAge, maxAge);
+
         model.addAttribute("users", userService.filterByAge(minAge, maxAge));
         return "users";
     }
@@ -37,6 +38,7 @@ public class UserController {
     @GetMapping("new")
     public String createUser(Model model) {
         logger.info("Create user form");
+
         model.addAttribute("user", new User());
         return "user";
     }
@@ -44,6 +46,7 @@ public class UserController {
     @PostMapping
     public String saveUser(User user) {
         logger.info("Save user method");
+
         userService.save(user);
         return "redirect:/user";
     }
