@@ -16,6 +16,6 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
 
     List<Product> findByCoatLessThan(BigDecimal maxCoat);
 
-    List<Product> findByCoatAnd(BigDecimal minCoat, BigDecimal maxCoat);
+    List<Product> findByCoatBetween(BigDecimal minCoat, BigDecimal maxCoat);
 
 }

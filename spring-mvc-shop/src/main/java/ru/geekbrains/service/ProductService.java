@@ -30,11 +30,14 @@ public class ProductService {
 
         if(minCoat == null && maxCoat != null) {
             return repository.findByCoatLessThan(maxCoat);
-        } else if(minCoat != null && maxCoat == null) {
+        }
+        if(minCoat != null && maxCoat == null) {
             return repository.findByCoatGreaterThan(minCoat);
-        } else if(minCoat != null && maxCoat != null) {
-            return repository.findByCoatAnd(minCoat, maxCoat);
-        } else return repository.findAll();
+        }
+        if(minCoat != null) {
+            return repository.findByCoatBetween(minCoat, maxCoat);
+        }
+        return repository.findAll();
     }
 
     @Transactional

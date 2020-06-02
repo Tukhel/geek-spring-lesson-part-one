@@ -1,6 +1,8 @@
 package ru.geekbrains.persist.entity;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "users")
@@ -10,11 +12,20 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(length = 32)
+    @NotBlank
+    @Column(length = 32, nullable = false)
     private String name;
 
-    @Column(length = 32)
+    @NotBlank
+    @Column(length = 32, nullable = false)
     private String password;
+
+    @Transient
+    private String repeatPassword;
+
+    @Email
+    @Column
+    private String email;
 
     @Column
     private Integer age;
@@ -52,11 +63,27 @@ public class User {
         this.password = password;
     }
 
+    public String getRepeatPassword() {
+        return repeatPassword;
+    }
+
+    public void setRepeatPassword(String repeatPassword) {
+        this.repeatPassword = repeatPassword;
+    }
+
     public Integer getAge() {
         return age;
     }
 
     public void setAge(Integer age) {
         this.age = age;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }
