@@ -47,11 +47,11 @@
 
         <div class="col-12 mt-3">
             <form>
-                <label for="minCoat">Min Coat</label>
-                <input type="number" name="minCoat" id="minCoat"/>
+                <label for="minCost">Min Cost</label>
+                <input type="number" name="minCost" id="minCost" th:value="${param.minCost}"/>
 
-                <label for="maxCoat">Max Coat</label>
-                <input type="number" name="maxCoat" id="maxCoat"/>
+                <label for="maxCost">Max Cost</label>
+                <input type="number" name="maxCost" id="maxCost" th:value="${param.maxCost}"/>
 
                 <button class="btn btn-primary" type="submit">Filter</button>
             </form>
@@ -63,75 +63,18 @@
                 <tr>
                     <th scope="col">Id</th>
                     <th scope="col">Title</th>
-                    <th scope="col">Coast</th>
+                    <th scope="col">Cost</th>
                     <th scope="col">Actions</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr hidden>
+                <tr th:unless="${productsPage.hasContent()}">
                     <td class="text-center" colspan="5">No data</td>
                 </tr>
-                <tr th:each="user : ${products}">
+                <tr th:if="${productsPage.hasContent()}" th:each="product : ${productsPage.content}">
                     <th scope="row" th:text="${product.id}">1</th>
-                    <td th:text="${product.title}">MacbookPro</td>
-                    <td th:text="${product.coast}">2000$</td>
-                    <th scope="row" th:text="${product.id}">2</th>
-                    <td th:text="${product.title}">Acer_Aspire7735G</td>
-                    <td th:text="${product.coast}">100$</td>
-                    <th scope="row" th:text="${product.id}">3</th>
-                    <td th:text="${product.title}">Iphone11</td>
-                    <td th:text="${product.coast}">1500$</td>
-                    <th scope="row" th:text="${product.id}">4</th>
-                    <td th:text="${product.title}">Samsung_GalaxyS10</td>
-                    <td th:text="${product.coast}">1000$</td>
-                    <th scope="row" th:text="${product.id}">5</th>
-                    <td th:text="${product.title}">Huiway_P20pro</td>
-                    <td th:text="${product.coast}">500$</td>
-                    <th scope="row" th:text="${product.id}">6</th>
-                    <td th:text="${product.title}">MacbookPro</td>
-                    <td th:text="${product.coast}">2000$</td>
-                    <th scope="row" th:text="${product.id}">7</th>
-                    <td th:text="${product.title}">Acer_Aspire7735G</td>
-                    <td th:text="${product.coast}">100$</td>
-                    <th scope="row" th:text="${product.id}">8</th>
-                    <td th:text="${product.title}">Iphone11</td>
-                    <td th:text="${product.coast}">1500$</td>
-                    <th scope="row" th:text="${product.id}">9</th>
-                    <td th:text="${product.title}">Samsung_GalaxyS10</td>
-                    <td th:text="${product.coast}">1000$</td>
-                    <th scope="row" th:text="${product.id}">10</th>
-                    <td th:text="${product.title}">Huiway_P20pro</td>
-                    <td th:text="${product.coast}">500$</td>
-                    <th scope="row" th:text="${product.id}">11</th>
-                    <td th:text="${product.title}">MacbookPro</td>
-                    <td th:text="${product.coast}">2000$</td>
-                    <th scope="row" th:text="${product.id}">12</th>
-                    <td th:text="${product.title}">Acer_Aspire7735G</td>
-                    <td th:text="${product.coast}">100$</td>
-                    <th scope="row" th:text="${product.id}">13</th>
-                    <td th:text="${product.title}">Iphone11</td>
-                    <td th:text="${product.coast}">1500$</td>
-                    <th scope="row" th:text="${product.id}">14</th>
-                    <td th:text="${product.title}">Samsung_GalaxyS10</td>
-                    <td th:text="${product.coast}">1000$</td>
-                    <th scope="row" th:text="${product.id}">15</th>
-                    <td th:text="${product.title}">Huiway_P20pro</td>
-                    <td th:text="${product.coast}">500$</td>
-                    <th scope="row" th:text="${product.id}">16</th>
-                    <td th:text="${product.title}">MacbookPro</td>
-                    <td th:text="${product.coast}">2000$</td>
-                    <th scope="row" th:text="${product.id}">17</th>
-                    <td th:text="${product.title}">Acer_Aspire7735G</td>
-                    <td th:text="${product.coast}">100$</td>
-                    <th scope="row" th:text="${product.id}">18</th>
-                    <td th:text="${product.title}">Iphone11</td>
-                    <td th:text="${product.coast}">1500$</td>
-                    <th scope="row" th:text="${product.id}">19</th>
-                    <td th:text="${product.title}">Samsung_GalaxyS10</td>
-                    <td th:text="${product.coast}">1000$</td>
-                    <th scope="row" th:text="${product.id}">20</th>
-                    <td th:text="${product.title}">Huiway_P20pro</td>
-                    <td th:text="${product.coast}">500$</td>
+                    <td th:text="${product.title}">Macbook pro 2015</td>
+                    <td th:text="${product.cost}">$2000</td>
                     <td>
                         <a class="btn btn-success" href="#"><i class="fas fa-edit"></i></a>
                         <a class="btn btn-danger" href="#"><i class="far fa-trash-alt"></i></a>
@@ -140,6 +83,36 @@
                 </tbody>
             </table>
         </div>
+
+        <div class="col-12" th:if="${productsPage.hasContent()}">
+            <nav aria-label="...">
+                <ul class="pagination">
+                    <li class="page-item"
+                        th:classappend="${!productsPage.hasPrevious()} ? 'disabled'">
+
+                        <a class="page-link"
+                           th:href="@{/product(page=${prevPageNumber}, size=${productsPage.size}, minCost=${param.minCost}, maxCost=${param.maxCost})}" tabindex="-1">Previous</a>
+                    </li>
+
+                    <li th:each="num: ${#numbers.sequence(1, productsPage.totalPages)}"
+                        th:classappend="${num == productsPage.number + 1} ? 'active'"
+                        class="page-item">
+
+                        <a class="page-link"
+                           th:text="${num}"
+                           th:href="@{/product(page=${num}, size=${productsPage.size}, minCost=${param.minCost}, maxCost=${param.maxCost})}">1</a>
+                    </li>
+
+                    <li class="page-item"
+                        th:classappend="${!productsPage.hasNext()} ? 'disabled'">
+
+                        <a class="page-link"
+                           th:href="@{/product(page=${nextPageNumber}, size=${productsPage.size}, minCost=${param.minCost}, maxCost=${param.maxCost})}">Next</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
     </div>
 </div>
 

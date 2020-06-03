@@ -1,6 +1,8 @@
 package ru.geekbrains.persist.entity;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import java.math.BigDecimal;
 
 @Entity
 @Table(name = "products")
@@ -10,19 +12,20 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    @NotBlank
     @Column
     private String title;
 
     @Column
-    private double coat;
+    private BigDecimal cost;
 
     public Product() {
     }
 
-    public Product(int id, String title, double coat) {
+    public Product(int id, String title, BigDecimal cost) {
         this.id = id;
         this.title = title;
-        this.coat = coat;
+        this.cost = cost;
     }
 
     public int getId() {
@@ -41,11 +44,11 @@ public class Product {
         this.title = title;
     }
 
-    public double getCoat() {
-        return coat;
+    public BigDecimal getCost() {
+        return cost;
     }
 
-    public void setCoat(double coat) {
-        this.coat = coat;
+    public void setCost(BigDecimal cost) {
+        this.cost = cost;
     }
 }

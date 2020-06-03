@@ -1,21 +1,22 @@
 package ru.geekbrains.persist.repo;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import ru.geekbrains.persist.entity.Product;
 
 import java.math.BigDecimal;
-import java.util.List;
 
 @Repository
 public interface ProductRepository extends JpaRepository<Product, Long> {
 
     Product findByTitle(String title);
 
-    List<Product> findByCoatGreaterThan(BigDecimal minCoat);
+    Page<Product> findByCostGreaterThan(BigDecimal minCost, Pageable pageable);
 
-    List<Product> findByCoatLessThan(BigDecimal maxCoat);
+    Page<Product> findByCostLessThan(BigDecimal maxCost, Pageable pageable);
 
-    List<Product> findByCoatBetween(BigDecimal minCoat, BigDecimal maxCoat);
+    Page<Product> findByCostBetween(BigDecimal minCost, BigDecimal maxCost, Pageable pageable);
 
 }

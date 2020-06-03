@@ -1,7 +1,8 @@
 package ru.geekbrains.service;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.geekbrains.persist.entity.Product;
@@ -26,18 +27,18 @@ public class ProductService {
         return repository.findAll();
     }
 
-    public List<Product> filterByCoat(BigDecimal minCoat, BigDecimal maxCoat) {
+    public Page<Product> filterByCost(BigDecimal minCost, BigDecimal maxCost, Pageable pageable) {
 
-        if(minCoat == null && maxCoat != null) {
-            return repository.findByCoatLessThan(maxCoat);
+        if(minCost == null && maxCost != null) {
+            return repository.findByCostLessThan(maxCost, pageable);
         }
-        if(minCoat != null && maxCoat == null) {
-            return repository.findByCoatGreaterThan(minCoat);
+        if(minCost != null && maxCost == null) {
+            return repository.findByCostGreaterThan(minCost, pageable);
         }
-        if(minCoat != null) {
-            return repository.findByCoatBetween(minCoat, maxCoat);
+        if(minCost != null) {
+            return repository.findByCostBetween(minCost, maxCost, pageable);
         }
-        return repository.findAll();
+        return repository.findAll(pageable);
     }
 
     @Transactional
