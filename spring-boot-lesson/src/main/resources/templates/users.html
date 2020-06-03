@@ -79,8 +79,10 @@
                     <td th:text="${user.name}">Alex</td>
                     <td th:text="${user.age}">21</td>
                     <td>
-                        <a class="btn btn-success" href="#"><i class="fas fa-edit"></i></a>
-                        <a class="btn btn-danger" href="#"><i class="far fa-trash-alt"></i></a>
+                        <a class="btn btn-success" th:href="@{/user/edit(id=${user.id})}"><i class="fas fa-edit"></i></a>
+                        <form th:action="@{/user(id=${user.id})}" th:method="delete">
+                            <button class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
+                        </form>
                     </td>
                 </tr>
                 </tbody>

@@ -8,10 +8,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import ru.geekbrains.persist.entity.User;
 import ru.geekbrains.service.UserService;
 
@@ -57,6 +54,14 @@ public class UserController {
         return "user";
     }
 
+    @GetMapping("edit")
+    public String editUser(@RequestParam("id") Long id, Model model) {
+        logger.info("Edit user form");
+
+        model.addAttribute("user", userService.findById(id));
+        return "user";
+    }
+
     @PostMapping
     public String saveUser(@Valid User user, BindingResult bindingResult) {
         logger.info("Save user method");
@@ -71,6 +76,14 @@ public class UserController {
         }
 
         userService.save(user);
+        return "redirect:/user";
+    }
+
+    @DeleteMapping
+    public String deleteUser(@RequestParam("id") Long id) {
+        logger.info("Delete user with id {}", id);
+
+        userService.delete(id);
         return "redirect:/user";
     }
 }

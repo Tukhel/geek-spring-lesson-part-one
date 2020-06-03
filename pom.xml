@@ -15,6 +15,7 @@
         <module>spring-mvc-example</module>
         <module>spring-mvc-shop</module>
         <module>hibernate-lesson</module>
+        <module>spring-boot-lesson</module>
     </modules>
 
 

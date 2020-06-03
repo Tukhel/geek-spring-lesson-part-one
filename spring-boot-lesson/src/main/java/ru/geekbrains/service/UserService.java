@@ -52,4 +52,8 @@ public class UserService {
     public Optional<User> findById(long id) {
         return repository.findById(id);
     }
+
+    public void delete(Long id) {
+        repository.deleteById(id);
+    }
 }

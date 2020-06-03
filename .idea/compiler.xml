@@ -6,12 +6,18 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="spring-mvc-shop" />
         <module name="network-chat" />
         <module name="spring-mvc-example" />
-        <module name="servlet-example" />
+        <module name="spring-boot-lesson" />
+        <module name="spring-mvc-shop" />
         <module name="hibernate-lesson" />
+        <module name="servlet-example" />
       </profile>
     </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="spring-boot-lesson" options="-parameters" />
+    </option>
   </component>
 </project>
