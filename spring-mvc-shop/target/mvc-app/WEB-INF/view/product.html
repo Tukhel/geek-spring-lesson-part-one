@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"/>
-    <title>User</title>
+    <title>Product</title>
 </head>
 
 <body>
@@ -25,10 +25,10 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-                <a class="nav-link" th:href="@{/product}">Products</a>
-            </li>
             <li class="nav-item active">
+                <a class="nav-link" href=#">Products</a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link" href="#">Users</a>
             </li>
         </ul>
@@ -42,35 +42,23 @@
 <div class="container">
     <div class="row py-2">
         <div class="col-12">
-            <form th:action="@{/user}" method="post" th:object="${user}">
+            <form th:action="@{/product}" method="post" th:object="${product}">
                 <input th:type="hidden" th:field="*{id}">
                 <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="text" id="name" th:field="*{name}" class="form-control"  placeholder="Enter name">
-                    <small id="nameError" class="form-text text-error"
-                           th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Validation error</small>
+                    <label for="title">Title</label>
+                    <input type="text" id="title" th:field="*{title}" class="form-control"  placeholder="Enter title">
+                    <small id="titleError" class="form-text text-error"
+                           th:if="${#fields.hasErrors('title')}" th:errors="*{title}">Validation error</small>
                 </div>
+
                 <div class="form-group">
-                    <label for="name">Email</label>
-                    <input type="text" id="email" th:field="*{email}" class="form-control"  placeholder="Enter email">
-                    <small id="emailError" class="form-text text-error"
-                           th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Validation error</small>
+                    <label for="description">Description</label>
+                    <input type="text" id="description" th:field="*{description}" class="form-control"  placeholder="Enter description">
                 </div>
+
                 <div class="form-group">
-                    <label for="password">Password</label>
-                    <input type="password" id="password" th:field="*{password}" class="form-control"  placeholder="Enter password">
-                    <small id="passwordError" class="form-text text-error"
-                           th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Validation error</small>
-                </div>
-                <div class="form-group">
-                    <label for="repeatPassword">Repeat password</label>
-                    <input type="password" id="repeatPassword" th:field="*{repeatPassword}" class="form-control"  placeholder="Enter password">
-                    <small id="repeatPasswordError" class="form-text text-error"
-                           th:if="${#fields.hasErrors('repeatPassword')}" th:errors="*{repeatPassword}">Validation error</small>
-                </div>
-                <div class="form-group">
-                    <label for="age">Age</label>
-                    <input type="number" id="age" th:field="*{age}" class="form-control"  placeholder="Enter user age">
+                    <label for="cost">Cost</label>
+                    <input type="number" id="cost" class="form-control" placeholder="Enter cost">
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>

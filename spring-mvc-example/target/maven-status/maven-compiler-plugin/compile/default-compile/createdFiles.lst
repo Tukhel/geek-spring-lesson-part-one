@@ -1,0 +1,9 @@
+ru\geekbrains\persist\repo\UserSpecification.class
+ru\geekbrains\controller\UserController.class
+ru\geekbrains\persist\entity\User.class
+ru\geekbrains\AppConfig.class
+ru\geekbrains\persist\repo\UserRepository.class
+ru\geekbrains\WebInitializer.class
+ru\geekbrains\AppPersistConfig.class
+ru\geekbrains\WelcomeController.class
+ru\geekbrains\service\UserService.class
