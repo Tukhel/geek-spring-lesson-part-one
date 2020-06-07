@@ -26,7 +26,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link" th:href="@{/product}">Products</a>
+                <a class="nav-link" href="#">Products</a>
             </li>
             <li class="nav-item active">
                 <a class="nav-link" href="#">Users</a>
@@ -79,10 +79,8 @@
                     <td th:text="${user.name}">Alex</td>
                     <td th:text="${user.age}">21</td>
                     <td>
-                        <a class="btn btn-success" th:href="@{/user/edit(id=${user.id})}"><i class="fas fa-edit"></i></a>
-                        <form th:action="@{/user(id=${user.id})}" th:method="delete">
-                            <button class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
-                        </form>
+                        <a class="btn btn-success" href="#"><i class="fas fa-edit"></i></a>
+                        <a class="btn btn-danger" href="#"><i class="far fa-trash-alt"></i></a>
                     </td>
                 </tr>
                 </tbody>

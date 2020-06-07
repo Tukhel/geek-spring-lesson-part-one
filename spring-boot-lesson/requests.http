@@ -1,0 +1,17 @@
+GET http://localhost:8080/mvc-app/api/v1/user/all
+
+###
+
+POST http://localhost:8080/mvc-app/api/v1/user
+Content-Type: application/json
+
+{
+  "name": "QWER",
+  "password": "sdag11",
+  "email": null,
+  "age": 19
+}
+
+###
+
+DELETE http://localhost:8080/mvc-app/api/v1/user/12/id
