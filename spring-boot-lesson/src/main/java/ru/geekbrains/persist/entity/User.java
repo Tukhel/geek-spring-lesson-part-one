@@ -1,5 +1,7 @@
 package ru.geekbrains.persist.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
@@ -20,6 +22,7 @@ public class User {
     @Column(length = 32, nullable = false)
     private String password;
 
+    @JsonIgnore
     @Transient
     private String repeatPassword;
 
